@@ -1,0 +1,43 @@
+:root {
+  --gold: #D4AF37;
+  --dark-bg: #0a0a0a;
+  --card-bg: #111111;
+  --text-white: #ffffff;
+  --text-gray: #a0a0a0;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--gold);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-badge {
+  width: 40px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 0 auto 20px;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }

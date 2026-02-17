@@ -1,0 +1,124 @@
+/* Configuración del Contenedor Principal */
+.hero {
+  position: relative;
+  height: 100vh; /* Ocupa toda la pantalla */
+  width: 100%;
+  /* IMAGEN DE FONDO */
+  background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efecto Parallax (la imagen se queda quieta al bajar) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Capa oscura superpuesta para que las letras resalten */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+/* Contenedor del Texto (encima de la capa oscura) */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+  animation: fadeInUp 1.5s ease-out; /* Animación de entrada suave */
+}
+
+/* --- ESTILO DEL NOMBRE (TÍTULO) --- */
+.hero-title {
+  font-family: var(--font-serif); /* Fuente elegante */
+  font-size: 5rem; /* Tamaño gigante */
+  color: var(--gold); /* Color dorado */
+  margin: 0;
+  letter-spacing: 15px; /* Separación entre letras para elegancia */
+  text-transform: uppercase;
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.8); /* Sombra para profundidad */
+  line-height: 1.1;
+}
+
+/* Línea separadora dorada */
+.separator-line {
+  width: 100px;
+  height: 3px;
+  background-color: var(--gold);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+/* --- ESTILO DEL SUBTÍTULO --- */
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 10px rgba(0,0,0,1);
+}
+
+/* --- BOTÓN DE RESERVA --- */
+.btn-hero-reserve {
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 15px 45px;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto hover (llenado dorado) */
+.btn-hero-reserve:hover {
+  background-color: var(--gold);
+  color: #000;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVO (Para celulares) */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem; /* Letra más pequeña en celular */
+    letter-spacing: 8px;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+  }
+
+  .btn-hero-reserve {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+}
