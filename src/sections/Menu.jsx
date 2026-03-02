@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ScrollText, ShoppingBag, Check } from 'lucide-react';
 import './Menu.css';
-<Link to="/clientes" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 font-bold">
-  Admin Clientes
-</Link>
+import fotoCeviche from '../imagenes/ceviche.jpg';
 
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('entradas');
@@ -17,19 +15,19 @@ export const Menu = () => {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  // 1. AHORA TENEMOS 5 CATEGORÍAS SEPARADAS
+  // CATEGORÍAS
   const categories = [
     { id: 'entradas', label: 'Entradas' },
     { id: 'fuertes', label: 'Platos Fuertes' },
     { id: 'postres', label: 'Postres' },
-    { id: 'bebidas', label: 'Bebidas' }, // Sin alcohol
-    { id: 'licores', label: 'Licores' }  // Con alcohol
+    { id: 'bebidas', label: 'Bebidas' }, 
+    { id: 'licores', label: 'Licores' }  
   ];
 
-  // 2. DATOS DE LOS PLATOS Y BEBIDAS
+  // DATOS DE LOS PLATOS Y BEBIDAS CON EL MENÚ ACTUALIZADO
   const previewItems = {
     entradas: [
-      { id: 1, name: "Ceviche de Mango Biche", desc: "Mango biche, leche de tigre de coco.", price: "$28.000", img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop" },
+      { id: 1, name: "Ceviche de Mango Biche", desc: "Mango biche, leche de tigre de coco.", price: "$28.000", img:  },
       { id: 2, name: "Carpaccio de Res", desc: "Lomito fino, alcaparras y trufa.", price: "$35.000", img: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" },
       { id: 3, name: "Chicharrones de Pulpo", desc: "Pulpo crocante con papa criolla.", price: "$42.000", img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop" }
     ],
@@ -39,54 +37,52 @@ export const Menu = () => {
       { id: 6, name: "Risotto de Setas", desc: "Arroz arborio y hongos silvestres.", price: "$48.000", img: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?q=80&w=600&auto=format&fit=crop" }
     ],
     postres: [
-      { id: 7, name: "Volcán de Chocolate", desc: "Bizcocho tibio con helado.", price: "$22.000", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600&auto=format&fit=crop" },
+      { id: 7, name: "Volcán de Chocolate", desc: "Bizcocho tibio con helado de vainilla.", price: "$22.000", img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=600&auto=format&fit=crop" },
       { id: 8, name: "Cheesecake de Frutos", desc: "Reducción de moras silvestres.", price: "$20.000", img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop" },
       { id: 9, name: "Milhoja de Arequipe", desc: "Capas crocantes hechas en casa.", price: "$18.000", img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=600&auto=format&fit=crop" }
     ],
-    // --- SECCIÓN BEBIDAS (Sin Alcohol) ---
     bebidas: [
       { id: 10, name: "Limonada de Coco", desc: "Cremosa, con leche de coco natural y limón.", price: "$14.000", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop" },
-      { id: 11, name: "Soda de Frutos Rojos", desc: "Agua con gas, reducción de moras y yerbabuena.", price: "$12.000", img: "https://images.unsplash.com/photo-1530598342240-278550186196?q=80&w=600&auto=format&fit=crop" },
-      { id: 12, name: "Jugo de Maracuyá", desc: "Pulpa natural en agua o leche.", price: "$10.000", img: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=600&auto=format&fit=crop" }
+      { id: 11, name: "Limonada Cerezada", desc: "Refrescante mezcla cítrica con toque de cereza.", price: "$12.000", img: "https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=600&auto=format&fit=crop" },
+      { id: 12, name: "Sodas Saborizadas", desc: "Frutos rojos, maracuyá o lychee.", price: "$12.000", img: "https://images.unsplash.com/photo-1530598342240-278550186196?q=80&w=600&auto=format&fit=crop" },
+      { id: 13, name: "Agua San Pellegrino", desc: "Agua mineral con gas, en botella.", price: "$15.000", img: "https://images.unsplash.com/photo-1551754402-23f4c622ba79?q=80&w=600&auto=format&fit=crop" },
+      { id: 14, name: "Jugos Naturales", desc: "Mango, mora, lulo o guanábana.", price: "$10.000", img: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=600&auto=format&fit=crop" }
     ],
-    // --- SECCIÓN LICORES (Con Alcohol) ---
     licores: [
-      { id: 13, name: "Gin Tonic Botánico", desc: "Ginebra premium, tónica artesanal y especias.", price: "$35.000", img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop" },
-      { id: 14, name: "Vino Tinto Malbec", desc: "Copa de reserva, notas de madera y frutos rojos.", price: "$28.000", img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop" },
-      { id: 15, name: "Margarita de Lulo", desc: "Tequila reposado, lulo fresco y borde de sal.", price: "$32.000", img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=600&auto=format&fit=crop" }
+      { id: 15, name: "Gin Tonic Botánico", desc: "Ginebra premium, tónica artesanal y especias.", price: "$35.000", img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=600&auto=format&fit=crop" },
+      { id: 16, name: "Margarita de Lulo", desc: "Tequila reposado, lulo fresco y borde de sal.", price: "$32.000", img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=600&auto=format&fit=crop" },
+      { id: 17, name: "Old Fashioned", desc: "Bourbon, amargo de angostura y piel de naranja.", price: "$38.000", img: "https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=600&auto=format&fit=crop" },
+      { id: 18, name: "Mojito Clásico", desc: "Ron blanco, yerbabuena fresca, limón y soda.", price: "$30.000", img: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=600&auto=format&fit=crop" },
+      { id: 19, name: "Vino Tinto (Copa)", desc: "Copa de reserva, notas de madera y frutos rojos.", price: "$28.000", img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop" },
+      { id: 20, name: "Cerveza Artesanal", desc: "Rubia, roja o negra de barril.", price: "$18.000", img: "https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?q=80&w=600&auto=format&fit=crop" }
     ]
   };
 
-  // 3. CARTA COMPLETA (MODAL) SEPARADA TAMBIÉN
+  // CARTA COMPLETA (MODAL) ACTUALIZADA
   const fullMenu = {
     "Entradas & Compartir": previewItems.entradas.map(i => ({name: i.name, price: i.price})),
     "Platos Fuertes": previewItems.fuertes.map(i => ({name: i.name, price: i.price})),
     "Postres": previewItems.postres.map(i => ({name: i.name, price: i.price})),
-    "Bebidas Refrescantes": [
-        { name: "Limonada de Coco", price: "$14.000" },
-        { name: "Limonada Cerezada", price: "$12.000" },
-        { name: "Sodas Saborizadas", price: "$12.000" },
-        { name: "Agua San Pellegrino", price: "$15.000" },
-        { name: "Jugos Naturales", price: "$10.000" }
-    ],
-    "Licores & Cocteles": [
-        { name: "Gin Tonic Botánico", price: "$35.000" },
-        { name: "Margarita de Lulo", price: "$32.000" },
-        { name: "Old Fashioned", price: "$38.000" },
-        { name: "Mojito Clásico", price: "$30.000" },
-        { name: "Vino Tinto (Copa)", price: "$28.000" },
-        { name: "Cerveza Artesanal", price: "$18.000" }
-    ]
+    "Bebidas Refrescantes": previewItems.bebidas.map(i => ({name: i.name, price: i.price})),
+    "Licores & Cocteles": previewItems.licores.map(i => ({name: i.name, price: i.price}))
   };
 
   return (
     <section id="carta" className="menu-section">
       <div className="container">
+        
+        {/* Botón de Admin Clientes Opcional (Comentado o ubicado donde lo necesites) */}
+        {/* <div style={{ textAlign: 'right', paddingBottom: '20px' }}>
+          <Link to="/clientes" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 font-bold">
+            Admin Clientes
+          </Link>
+        </div> */}
+
         <div className="section-badge"></div>
         <h2>Nuestra Carta</h2>
         <p className="subtitle">Una exploración de sabores locales con técnicas globales.</p>
         
-        {/* PESTAÑAS (Ahora son 5 botones) */}
+        {/* PESTAÑAS */}
         <div className="category-tabs">
           {categories.map((cat) => (
             <button 

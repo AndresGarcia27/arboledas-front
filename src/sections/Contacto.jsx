@@ -23,7 +23,7 @@ export const Contacto = () => {
               <Phone size={18} className="icon" />
               +57 (300) 123-4567
             </p>
-            <button className="btn-reserve">Reservar Mesa</button>
+            <button className="send-msg">Envianos un mensaje</button>
           </div>
 
           {/* Columna 2: Horarios */}
