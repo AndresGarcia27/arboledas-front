@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ReservationModal } from '../components/ReservationModal';
 import './Hero.css';
+<Link to="/clientes" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 font-bold">
+  Admin Clientes
+</Link>
 
 export const Hero = () => {
   const [isReservaOpen, setIsReservaOpen] = useState(false);

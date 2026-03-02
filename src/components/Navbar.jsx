@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { User } from 'lucide-react'; 
 import { AuthModal } from './AuthModal'; // Asegúrate de tener este archivo creado
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

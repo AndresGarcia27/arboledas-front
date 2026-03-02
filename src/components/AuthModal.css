@@ -146,3 +146,41 @@
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* Este es el fondo oscuro que cubre toda la pantalla */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  z-index: 9999; /* Tiene que ser mayor a 1000 porque tu Navbar tiene 1000 */
+}
+
+/* Esta es la "tarjeta" del formulario */
+.modal-content {
+  background-color: #1a1a1a; /* Fondo oscuro elegante */
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #D4AF37; /* Usando un tono dorado, puedes usar var(--gold) si lo tienes global */
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* Opcional: Un botón para cerrar la X en la esquina */
+.btn-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

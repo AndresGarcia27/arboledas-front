@@ -59,4 +59,20 @@ export const AuthModal = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
-};
+// Si isOpen es falso, no renderiza nada
+if (!isOpen) return null; 
+
+return (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <button className="btn-cerrar" onClick={onClose}>×</button>
+      
+      {/* Aquí adentro va tu formulario actual */}
+      <h2>Iniciar Sesión en Arboleda's</h2>
+      <form>
+         {/* Tus inputs de correo y contraseña */}
+      </form>
+    </div>
+  </div>
+);
+}

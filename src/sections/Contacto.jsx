@@ -1,5 +1,9 @@
 import { MapPin, Phone, Clock, Instagram, Facebook } from 'lucide-react';
 import './Contacto.css';
+import { Link } from 'react-router-dom';
+<Link to="/clientes" className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 font-bold">
+  Admin Clientes
+</Link>
 
 export const Contacto = () => {
   return (
